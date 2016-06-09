@@ -21,7 +21,7 @@ namespace AspNetMvcSqlCe.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SqlCeConnection", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +29,9 @@ namespace AspNetMvcSqlCe.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<AspNetMvcSqlCe.Models.Category> Categories { get; set; }
+
+        public System.Data.Entity.DbSet<AspNetMvcSqlCe.Models.Item> Items { get; set; }
     }
 }
